@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="MMDocBench: Benchmarking Large Vision-Language Models for Fine-Grained Visual Document Understanding">
+  <meta name="keywords" content="MMDocBench, Visual Document Understanding, Large Vision-Language Models">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> MMDocBench: Benchmarking Large Vision-Language Models (LVLMs) for Fine-Grained Visual Document Understanding </title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="./static/css/leaderboard.css">
+
+  <script type="text/javascript" src="static/js/sort-table.js" defer></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/explorer-index.js"></script>
+  <script src="./static/js/question_card.js"></script>
+
+  <script src="./static/js/leaderboard_testmini.js"></script>  
+  <script src="./data/results/output_folders.js" defer></script>
+  <script src="./data/results/model_scores.js" defer></script>
+
+  <script src="./visualizer/data/data_public.js" defer></script>
+</head>
+<body>
+
+<!-- <nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;"> -->
+      <!-- <a class="navbar-item" href="https://keunhong.com">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a> -->
+      <!-- @PAN TODO: consider adding links? -->
+      <!-- <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://chameleon-llm.github.io/">
+            <b>Chameleon</b> <p style="font-size:18px; display: inline; margin-left: 5px;">🔥</p>
+          </a>
+          <a class="navbar-item" href="https://scienceqa.github.io/">
+            <b>ScienceQA</b> <p style="font-size:18px; display: inline; margin-left: 5px;">🔥</p>
+          </a>
+          <a class="navbar-item" href="https://github.com/OpenGVLab/LLaMA-Adapter">
+            <b>LLaMA-Adapter (V2)</b> <p style="font-size:18px; display: inline; margin-left: 5px;">🔥</p>
+          </a>
+          <a class="navbar-item" href="https://promptpg.github.io/">
+            PromptPG
+          </a>
+          <a class="navbar-item" href="https://arxiv.org/abs/2307.10635">
+            SciBench
+          </a>
+          <a class="navbar-item" href="https://arxiv.org/abs/2305.12524">
+            TheoremQA
+          </a>
+          <a class="navbar-item" href="https://lila.apps.allenai.org/">
+            Lila
+          </a>
+          <a class="navbar-item" href="https://iconqa.github.io/">
+            IconQA
+          </a>
+          <a class="navbar-item" href="https://lupantech.github.io/inter-gps/">
+            Inter-GPS
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav> -->
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title is-bold">
+            <!-- <img src="static/images/mathvista.png" style="width:1em;vertical-align: middle" alt="Logo"/> -->
+            <span class="mmdocbench" style="vertical-align: middle">MMDocBench</span>
+            </h1>
+          <h2 class="subtitle is-3 publication-subtitle">
+            <b>Benchmarking Large Vision-Language Models (LVLMs) for <br> Fine-Grained Visual Document Understanding</b>
+            <!-- <br> -->
+            <!-- with GPT-4V, Bard, and Other Large Multimodal Models -->
+          </h2>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=-rxzvfcAAAAJ&hl=en"><b>Fengbin ZHU</b></a><sup style="color:#EF7C00;">1</sup>,
+            </span>
+            <span class="author-block">
+              <b>Ziyang LIU</b><sup style="color:#22b3a7;">2</sup>,
+            </span>
+             <span class="author-block">
+              <b>Xiang Yao NG</b><sup style="color:#22b3a7;">2</sup>,
+            </span>
+             <span class="author-block">
+              <b>Haohui WU</b><sup style="color:#EF7C00;">1</sup>
+            </span>
+            <br>
+            <span class="author-block">
+              <a href="https://wenjiewwj.github.io/"><b>Wenjie WANG</b></a><sup style="color:#EF7C00;">1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://fulifeng.github.io/"><b>Fuli FENG</b></a><sup style="color:#083b92;">3</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=Mz2W41YAAAAJ&hl=en"><b>Chao WANG</b></a><sup style="color:#22b3a7;">2</sup>,
+            </span>
+            <span class="author-block">
+              <a href=" https://dblp.org/pid/55/5812.html"><b>Huanbo LUAN</b></a><sup style="color:#22b3a7;">2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://www.chuatatseng.com/"><b>Tat-Seng CHUA</b></a><sup style="color:#EF7C00;">1</sup>,
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup style="color:#EF7C00;">1</sup>National University of Singapore</span><br>
+            <span class="author-block"><sup style="color:#22b3a7;">2</sup>6Estates Pte Ltd, Singapore</span><br>
+            <span class="author-block"><sup style="color:#083b92;">3</sup>University of Science and Technology of China</span>
+          </div>
+  
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="" target="_blank" 
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="" target="_blank" 
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+    
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/fengbinzhu/MMDocBench" target="_blank" 
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Github</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href="https://huggingface.co/datasets/next-tat/MMDocBench" target="_blank" 
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <!-- <i class="far fa-images"></i> -->
+                      <p style="font-size:18px">🤗</p>
+                      <!-- 🔗 -->
+                  </span>
+                  <span>Dataset</span>
+                </a>
+              </span>
+  
+              <!-- Leaderboard Link. -->
+              <span class="link-block">
+                <a href="#leaderboard"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <p style="font-size:18px">🏆</p>
+                  </span>
+                  <span>Leaderboard</span>
+                </a>
+              </span>
+             
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="content has-text-centered">
+      <img src="static/images/mmdocbench.png" alt="overview of MMDocBench" width="99%"/>
+      <p>  Overview of <span class="mmdocbench">MMDocBench</span>, which is designed to holistically assess the <b>fine-grained visual perception and reasoning</b> abilities of Large Vision-Language Models (LVLMs) through various <b>OCR-free document understanding tasks</b>.
+        <br> 
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container" style="margin-bottom: 2vh;">
+    <!-- Abstract. -->
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+         <div class="box m-5">
+        <h2 class="title is-3">Introduction</h2>
+        <div class="content has-text-justified">
+            <p>
+              To holistically assess Large Vision-Language Models (LVLMs) fine-grained visual understanding capabilities, we propose using document images
+              with multi-granularity and multi-modal information to supplement natural images.
+              In this light, we construct <span class="mmdocbench">MMDocBench</span>, a benchmark with various OCR-free document understanding tasks for the evaluation of fine-grained visual perception and reasoning abilities.
+              MMDocBench defines <b>15</b> main tasks and <b>48</b> sub tasks, covering various document images such as research papers, receipts, financial reports, Wikipedia tables, charts, and infographics.</p>
+              <p>
+              Additionally, in MMDocBench, we also provide annotations of <b>supporting regions </b> (i.e., bounding boxes) within the image for each QA pair. The supporting regions enable the evaluation of whether LVLMs have correctly grounded their predictions on the associated regions in the image, leading to a more comprehensive evaluation.
+              The output of supporting regions can offer significant practical value, making the LVLMs' responses more informative and interpretable while allowing for rapid cross-checking between the answer and the image.
+              Finally, MMDocBench contains <b>2,400</b> document images, involving <b>4,338</b> QA pairs with <b>11,353</b> supporting regions.</p>
+              <p>
+              Based on MMDocBench, we conduct extensive experiments using <b>13</b> open-source and <b>3</b> proprietary advanced LVLMs, assessing their strengths and weaknesses across different tasks and document image types.
+              We believe MMDocBench can enable a thorough and multi-faceted evaluation of fine-grained visual document understanding of LVLMs, thereby facilitating LVLMs' future advancement.</p>
+        </div>
+      </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+</div>
+</section>
+
+
+
+
+<!-- DATASET SECTION -->
+<section class="hero is-light is-small">
+  <div class="hero-body has-text-centered">
+   <h1 class="title is-1 mmdocbench">
+    <span class="mmdocbench" style="vertical-align: middle">MMDocBench Dataset</span>
+  </h1>
+  </div>
+</section>
+
+            
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered has-text-centered">
+      <!-- <div class="column is-full-width has-text-centered"> -->
+        <div class="column is-four-fifths">
+        <h2 class="title is-3">Overview</h2>
+        <div class="content has-text-justified">
+
+            <div class="box m-5">
+              <div class="content has-text-centered">
+                <img src="static/images/taxonomy_sta.png" alt="taxonmy and statistic " width="80%"/>
+                <p> Taxonomy and statistics of <span class="mmdocbench">MMDocBench</span>.</p>
+              </div>
+
+            </div>
+
+
+
+    
+        </div>
+      </div>
+    </div>
+    </div>
+
+
+         
+<section class="section">
+  <div class="container is-fluid">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full">
+        <h2 class="title is-3">Supporting Regions Analysis </h2>
+        <div class="content has-text-justified">
+          
+          <div class="box" style="margin: 0 auto; padding: 2rem;">
+            <div class="columns" style="margin: 0;">
+              <!-- First chart: Position distribution -->
+              <div class="column is-half" style="padding-left: 0; padding-right: 50;">
+                <div class="content has-text-centered">
+                  <img src="static/images/region_distribution.jpeg" alt="" width="100%" />
+                  <p>The position distribution of all supporting regions in <span class="mmdocbench">MMDocBench</span>.</p>
+                </div>
+              </div>
+
+              <!-- Second chart: Area distribution -->
+              <div class="column is-half" style="padding-left: 50; padding-right: 0;">
+                <div class="content has-text-centered">
+                  <img src="static/images/region_area.jpeg" alt="" width="100%" />
+                  <p>The area distribution (after applying a logarithmic transformation with a base of 10) of all supporting regions in <span class="mmdocbench">MMDocBench</span>.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- RESULTS SECTION -->
+<section class="hero is-light is-small">
+  <div class="hero-body has-text-centered">
+    <h1 class="title is-1 mathvista">Experiment Results</h1>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    
+    <div class="columns is-centered">
+      <div class="column is-full has-text-centered content">
+        <h2 class="title is-3" id="leaderboard">Leaderboard</h2>
+        <div class="content">
+          <!-- <p class="mt-3">Accuracy scores on the <b>testmini</b> subset (1,000 examples) of MMDocBench -->
+          <!-- </p> -->
+
+          <div id="testmini_leaderboard"></div>
+          <p>
+            <b>EM</b>: Exact Match;   <b>IOU</b>: Intersection over Union <br/>
+            <b>All</b>: Overall;   <b>VP</b>: Fine-Grained Visual Perception; <b>VR</b>: Fine-Grained Visual Reasoning
+          </p>
+
+        </div>
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-fluid">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full">
+        <h2 class="title is-3">Model Performance Analysis on Different Tasks</h2>
+        <div class="content has-text-justified">
+          
+          <div class="box" style="margin: 0 auto; padding: 2rem;">
+            <div class="columns" style="margin: 0;">
+              <!-- First chart: F1 score -->
+              <div class="column is-half" style="padding-left: 0; padding-right: 50;">
+                <div class="content has-text-centered">
+                  <img src="static/images/task_f1.jpeg" alt="" width="100%" />
+                  <p>Answer prediction performance comparison of LVLMs across all main tasks with F1 score.</p>
+                </div>
+              </div>
+
+              <!-- Second chart: IOU score -->
+              <div class="column is-half" style="padding-left: 50; padding-right: 0;">
+                <div class="content has-text-centered">
+                  <img src="static/images/task_iou.jpeg" alt="" width="100%" />
+                  <p>Region prediction performance comparison of LVLMs across all main tasks with IOU score.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- @PAN TODO: bibtex -->
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title is-3 has-text-centered">Citation</h2>
+    <pre><code>
+
+    </code></pre>
+  </div>
+</section>
+
+<section>
+  <div class="section" id="org-banners" style="display:flex">
+    <a href="" target="_blank" rel="external">
+        <img class="center-block org-banner" src="">
+    </a>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <!-- <div class="container"> -->
+    <div class="content has-text-centered">
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is website adapted from <a href="https://nerfies.github.io/">Nerfies</a>, licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  <!-- </div> -->
+</footer>
+
+</body>
+</html>
