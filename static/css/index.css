@@ -29,8 +29,8 @@ body {
 }
 
 
-.publication-title {
-}
+/* .publication-title {
+} */
 
 .publication-banner {
   max-height: parent;
@@ -45,8 +45,8 @@ body {
   object-fit: fit;
 }
 
-.publication-header .hero-body {
-}
+/* .publication-header .hero-body {
+} */
 
 .publication-title {
     font-family: 'Google Sans', sans-serif;
@@ -68,8 +68,8 @@ body {
     font-weight: bolder;
 }
 
-.publication-authors {
-}
+/* .publication-authors {
+} */
 
 .publication-authors a {
    color: hsl(204, 86%, 53%) !important;
@@ -83,12 +83,12 @@ body {
   display: inline-block;
 }
 
-.publication-banner img {
-}
+/* .publication-banner img {
+} */
 
-.publication-authors {
-  /*color: #4286f4;*/
-}
+/* .publication-authors {
+  /*color: #4286f4;
+} */
 
 .publication-video {
     position: relative;
@@ -108,8 +108,8 @@ body {
     height: 100%;
 }
 
-.publication-body img {
-}
+/* .publication-body img {
+} */
 
 .results-carousel {
   overflow: hidden;
@@ -142,6 +142,43 @@ body {
   height: 6em;
   margin: 10px;
   padding: 10px;
+}
+
+.dropdown {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+#categorySelect {
+  padding: 10px;
+  font-size: 16px;
+}
+
+.display-area {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.pair-container {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  text-align: center;
+  max-width: 200px;
+}
+
+.pair-container img {
+  max-width: 100%;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.pair-container p {
+  font-size: 14px;
+  margin: 0;
 }
 
 @media screen and (max-width: 768px) {

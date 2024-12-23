@@ -24,14 +24,15 @@
   <script defer src="./static/js/fontawesome.all.min.js"></script>
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
-  <script src="./static/js/explorer-index.js"></script>
+  <!-- <script src="./static/js/explorer-index.js"></script> -->
   <script src="./static/js/question_card.js"></script>
 
   <script src="./static/js/leaderboard_testmini.js"></script>  
   <script src="./data/results/output_folders.js" defer></script>
-  <script src="./data/results/model_scores.js" defer></script>
+  <script src="./data/model_scores.js" defer></script>
 
   <script src="./visualizer/data/data_public.js" defer></script>
+  <!-- <script src="./static/js/explorer.js"></script> -->
 </head>
 <body>
 
@@ -335,9 +336,22 @@
   </div>
 </section>
 
+<section class="section">
+  <div class="container">
+    <h1>Image-Text Pair Viewer</h1>
+    <div class="dropdown">
+      <label for="categorySelect">Select a Category:</label>
+      <select id="categorySelect">
+        <option value="" disabled selected>Choose a category</option>
+      </select>
+    </div>
+    <div id="displayArea" class="display-area">
+      <!-- Dynamic content will be injected here -->
+    </div>
+  </div>
+</section>
 
-
-
+<script src="./static/js/explorer.js"></script>
 <!-- @PAN TODO: bibtex -->
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
