@@ -1,0 +1,6 @@
+[
+  {
+    "image": "counting.PNG",
+    "text": "<strong>Question</strong>: How many years did Shares issued under the ESPP exceed $2 million?\n<strong>Reasoning Type</strong>: counting\n<strong>Answer</strong>: 3\n<strong>Bounding Box</strong>: []\n<strong>Supporting Evidence</strong>:\n  - <strong>Text</strong>: [4, 3, 4]\n  - <strong>Bounding Box</strong>: [[795, 225, 807, 236], [673, 225, 685, 236], [918, 225, 929, 236]]"
+  }
+]
