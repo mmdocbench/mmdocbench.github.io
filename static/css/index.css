@@ -167,18 +167,26 @@ body {
   border-radius: 5px;
   padding: 10px;
   text-align: center;
-  max-width: 200px;
+  max-width: 100%;
+  width: 700px;
 }
 
 .pair-container img {
   max-width: 100%;
   border-radius: 5px;
   margin-bottom: 10px;
+  width: 500px;
 }
 
 .pair-container p {
   font-size: 14px;
   margin: 0;
+  text-align: left; /* Align captions to the left */
+  white-space: pre-line;
+}
+
+.pair-container p strong {
+  font-weight: bold; /* Ensure bold text styling */
 }
 
 @media screen and (max-width: 768px) {

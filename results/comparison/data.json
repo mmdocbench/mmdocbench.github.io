@@ -1,0 +1,6 @@
+[
+  {
+    "image": "comparison.jpg",
+    "text": "<strong>Question</strong>: was the finish in 1930 above/below 12?\n<strong>Reasoning Type</strong>: comparison\n<strong>Answer</strong>: above\n<strong>Bounding Box</strong>: []\n<strong>Supporting Evidence</strong>:\n  - <strong>Text</strong>: [20]\n  - <strong>Bounding Box</strong>: [[547, 358, 577, 388]]"
+  }
+]

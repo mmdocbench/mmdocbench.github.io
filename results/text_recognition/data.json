@@ -1,0 +1,6 @@
+[
+  {
+    "image": "text_recognition.jpeg",
+    "text": "<strong>Question</strong>: Could you identify and read the text present in the provided image?\n<strong>Answer</strong>: Chaos Computer Club\n<strong>Bounding Box</strong>: [339, 362, 856, 498]"
+  }
+]

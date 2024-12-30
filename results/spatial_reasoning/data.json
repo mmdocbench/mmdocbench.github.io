@@ -1,0 +1,6 @@
+[
+  {
+    "image": "spatial_reasoning.jpg",
+    "text": "<strong>Question</strong>: Where is the largest font word printed at the top or bottom of the document?\n<strong>Reasoning Type</strong>: spatial\n<strong>Answer</strong>: Top\n<strong>Bounding Box</strong>: []\n<strong>Supporting Evidence</strong>:\n  - <strong>Text</strong>: [DIPLOMA]\n  - <strong>Bounding Box</strong>: [[382, 222, 610,268]]"
+  }
+]

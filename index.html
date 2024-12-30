@@ -32,7 +32,7 @@
   <script src="./data/model_scores.js" defer></script>
 
   <script src="./visualizer/data/data_public.js" defer></script>
-  <!-- <script src="./static/js/explorer.js"></script> -->
+  <script src="./static/js/explorer.js"></script>
 </head>
 <body>
 
@@ -337,21 +337,24 @@
 </section>
 
 <section class="section">
-  <div class="container">
-    <h1>Image-Text Pair Viewer</h1>
-    <div class="dropdown">
-      <label for="categorySelect">Select a Category:</label>
-      <select id="categorySelect">
-        <option value="" disabled selected>Choose a category</option>
-      </select>
-    </div>
-    <div id="displayArea" class="display-area">
-      <!-- Dynamic content will be injected here -->
+  <div class="container is-full has-text-centered content m-6">
+    <h2 class="title is-3 has-text-centered">Explorer</h2>
+    <p>Explore examples of MMDocBench</p>
+    <div class="container">
+      <div class="dropdown">
+        <!-- <label for="categorySelect">Select a Task to View Examples:</label> -->
+        <select id="categorySelect">
+          <option value="" disabled selected>Choose a Task</option>
+        </select>
+      </div>
+      <div id="displayArea" class="display-area">
+        <!-- Dynamic content will be injected here -->
+      </div>
     </div>
   </div>
 </section>
 
-<script src="./static/js/explorer.js"></script>
+
 <!-- @PAN TODO: bibtex -->
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">

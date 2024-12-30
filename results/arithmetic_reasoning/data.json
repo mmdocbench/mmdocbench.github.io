@@ -1,0 +1,6 @@
+[
+  {
+    "image": "arithmetic_reasoning.JPEG",
+    "text": "<strong>Question</strong>: How many years after the levanger church was built was the bamberg church built?\n<strong>Reasoning Type</strong>: arithmetic\n<strong>Answer</strong>: 96\n<strong>Bounding Box</strong>: []\n<strong>Supporting Evidence</strong>:\n  - <strong>Text</strong>: [1998, 1902]\n  - <strong>Bounding Box</strong>: [[843, 506, 918, 551], [843, 407, 917, 452]]"
+  }
+]

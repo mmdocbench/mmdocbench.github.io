@@ -1,0 +1,6 @@
+[
+  {
+    "image": "text_localization.png",
+    "text": "<strong>Text2Bbox Question</strong>: Can you find where ”Miami, Florida.” appears in the image and send back its position?\n<strong>Bounding Box</strong>: [406, 644, 576, 658]\n<strong>Bbox2Text Question</strong>: For the provided image and bounding box [406, 644, 576, 658], can you extract and return the text contained within the specified area?\n<strong>Text</strong>: Miami, Florida."
+  }
+]

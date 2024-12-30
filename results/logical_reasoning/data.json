@@ -1,0 +1,6 @@
+[
+  {
+    "image": "logical_reasoning.jpg",
+    "text": "<strong>Question</strong>: Which step denotes the quality assurance part of the test performed for COVID-19?\n<strong>Reasoning Type</strong>: logical\n<strong>Answer</strong>: 8\n<strong>Bounding Box</strong>: []\n<strong>Supporting Evidence</strong>:\n  - <strong>Text</strong>: [they pass Quality Control (QC)]\n  - <strong>Bounding Box</strong>: [[712,685,811,737]]"
+  }
+]

@@ -1,0 +1,6 @@
+[
+  {
+    "image": "key_information_extraction.png",
+    "text": "<strong>Question</strong>: Please perform detection and recognition of the text that has been categorized under the ”total amount” label.\n<strong>Answer</strong>: 50,000\n<strong>Bounding Box</strong>: [685, 740, 799, 762]"
+  }
+]

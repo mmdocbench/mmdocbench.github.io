@@ -3,13 +3,33 @@ document.addEventListener('DOMContentLoaded', () => {
   const displayArea = document.getElementById('displayArea');
 
   // List of categories (subfolder names)
-  const categories = ['category1', 'category2', 'category3']; // Add more as needed
+  const categories = ['Text Recognition', 'Text Localization', 'Table Recognition', 'Table Cell Localization', 'Key Information Extraction', 
+    'Document Forgery Detection', 'Document Question Answering', 'Chart Question Answering', 'Infographic Question Answering',
+  ]; // Add more as needed
 
-  // Populate the dropdown
-  categories.forEach(category => {
+  const categoryMap = {
+    text_recognition: "Text Recognition",
+    text_localization: "Text Localization",
+    table_recognition: "Table Recognition",
+    table_cell_localization: "Table Cell Localization",
+    key_information_extraction: "Key Information Extraction",
+    document_forgery_detection: "Document Forgery Detection",
+    document_question_answering: "Document Question Answering",
+    chart_question_answering: "Chart Question Answering",
+    infographic_question_answering: "Infographic Question Answering",
+    counting: "Counting",
+    arithmetic_reasoning: "Arithmetic Reasoning",
+    logical_reasoning: "Logical Reasoning",
+    spatial_reasoning: "Spatial Reasoning",
+    comparison: "Comparison",
+    sorting: "Sorting",
+  };
+
+  // Populate the dropdown with display names
+  Object.entries(categoryMap).forEach(([folderName, displayName]) => {
     const option = document.createElement('option');
-    option.value = category;
-    option.textContent = category;
+    option.value = folderName;
+    option.textContent = displayName;
     categorySelect.appendChild(option);
   });
 
@@ -35,7 +55,8 @@ document.addEventListener('DOMContentLoaded', () => {
           image.alt = item.text;
 
           const text = document.createElement('p');
-          text.textContent = item.text;
+          //text.textContent = item.text;
+          text.innerHTML = item.text;
 
           pairContainer.appendChild(image);
           pairContainer.appendChild(text);

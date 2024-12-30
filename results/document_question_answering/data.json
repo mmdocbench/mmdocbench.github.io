@@ -1,0 +1,6 @@
+[
+  {
+    "image": "document_question_answering.png",
+    "text": "<strong>Question</strong>: When was the document prepared?\n<strong>Answer</strong>: December 31, 1943\n<strong>Bounding Box</strong>: [428, 448, 579, 464]"
+  }
+]

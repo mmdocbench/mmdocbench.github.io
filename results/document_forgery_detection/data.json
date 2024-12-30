@@ -1,0 +1,6 @@
+[
+  {
+    "image": "document_forgery_detection.png",
+    "text": "<strong>Question</strong>: Can you spot the words that have been falsified in the photo?\n<strong>Answer</strong>: results\n<strong>Bounding Box</strong>: [220, 707, 380, 755]"
+  }
+]

@@ -1,0 +1,6 @@
+[
+  {
+    "image": "table_cell_localization.png",
+    "text": "<strong>Question</strong>: What is stored in the cell at the intersection of row 1 and column 3\n<strong>Answer</strong>: Normal\n<strong>Bounding Box</strong>: [594, 283, 684, 373]"
+  }
+]

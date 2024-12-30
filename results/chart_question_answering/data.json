@@ -1,0 +1,6 @@
+[
+  {
+    "image": "chart_question_answering.png",
+    "text": "<strong>Question</strong>: How many app publishers were in Apple's App Store in 2017?\n<strong>Answer</strong>: 143\n<strong>Bounding Box</strong>: [226, 222, 250, 235]"
+  }
+]
