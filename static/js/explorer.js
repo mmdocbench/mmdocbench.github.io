@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function displayCategory(category) {
     displayArea.innerHTML = ''; // Clear previous content
 
-    fetch(`results/${category}/data.json`) // Assuming a `data.json` file in each folder
+    fetch(`examples/${category}/data.json`) // Assuming a `data.json` file in each folder
       .then(response => response.json())
       .then(data => {
         data.forEach(item => {
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
           pairContainer.className = 'pair-container';
 
           const image = document.createElement('img');
-          image.src = `results/${category}/${item.image}`;
+          image.src = `examples/${category}/${item.image}`;
           image.alt = item.text;
 
           const text = document.createElement('p');
