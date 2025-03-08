@@ -10,13 +10,19 @@ function generateTable() {
           <td class="js-sort"><strong>Date</strong></td>
           <td class="js-sort-number"><strong><u>EM All</u></strong></td>
           <td class="js-sort-number"><strong>F1 All</strong></td>
+          <td class="js-sort-number"><strong>ANLS All</strong></td>
           <td class="js-sort-number"><strong>IOU All</strong></td>
+          <td class="js-sort-number"><strong>IOU@0.5 All</strong></td>
           <td class="js-sort-number"><strong>EM VP</strong></td>
           <td class="js-sort-number"><strong>F1 VP</strong></td>
+          <td class="js-sort-number"><strong>ANLS VP</strong></td>
           <td class="js-sort-number"><strong>IOU VP</strong></td>
+          <td class="js-sort-number"><strong>IOU@0.5 VP</strong></td>
           <td class="js-sort-number"><strong>EM VR</strong></td>
           <td class="js-sort-number"><strong>F1 VR</strong></td>
+          <td class="js-sort-number"><strong>ANLS VR</strong></td>
           <td class="js-sort-number"><strong>IOU VR</strong></td>
+          <td class="js-sort-number"><strong>IOU@0.5 VR</strong></td>
 
       </tr>`;
 
@@ -67,13 +73,19 @@ function generateTable() {
 
 
         table += `<td>${isNaN(entry.F1_ALL) ? "-" : entry.F1_ALL.toFixed(2).toString()}</td>`;
+        table += `<td>${isNaN(entry.ANLS_ALL) ? "-" : entry.ANLS_ALL.toFixed(2).toString()}</td>`;
         table += `<td>${isNaN(entry.IOU_ALL) ? "-" : entry.IOU_ALL.toFixed(2).toString()}</td>`;
+        table += `<td>${isNaN(entry.IOU05_ALL) ? "-" : entry.IOU05_ALL.toFixed(2).toString()}</td>`;
         table += `<td>${isNaN(entry.EM_VP) ? "-" : entry.EM_VP.toFixed(2).toString()}</td>`;
         table += `<td>${isNaN(entry.F1_VP) ? "-" : entry.F1_VP.toFixed(2).toString()}</td>`;
+        table += `<td>${isNaN(entry.ANLS_VP) ? "-" : entry.ANLS_VP.toFixed(2).toString()}</td>`;
         table += `<td>${isNaN(entry.IOU_VP) ? "-" : entry.IOU_VP.toFixed(2).toString()}</td>`;
+        table += `<td>${isNaN(entry.IOU05_VP) ? "-" : entry.IOU05_VP.toFixed(2).toString()}</td>`;
         table += `<td>${isNaN(entry.EM_VR) ? "-" : entry.EM_VR.toFixed(2).toString()}</td>`;
         table += `<td>${isNaN(entry.F1_VR) ? "-" : entry.F1_VR.toFixed(2).toString()}</td>`;
+        table += `<td>${isNaN(entry.ANLS_VR) ? "-" : entry.ANLS_VR.toFixed(2).toString()}</td>`;
         table += `<td>${isNaN(entry.IOU_VR) ? "-" : entry.IOU_VR.toFixed(2).toString()}</td>`;
+        table += `<td>${isNaN(entry.IOU05_VR) ? "-" : entry.IOU05_VR.toFixed(2).toString()}</td>`;
 
         // table += `<td>${entry.F1_ALL.toFixed(1).toString()}</td>`;
         // table += `<td>${entry.IOU_ALL.toFixed(1).toString()}</td>`;
